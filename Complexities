@@ -12,13 +12,28 @@ This is what we call O(n2).
 
 From <https://www.geeksforgeeks.org/understanding-time-complexity-simple-examples/> 
 
-
-
+	
+2. Space Complexity: Space complexity means the amount of space required to execute successfully the functionalities of the code. 
+You will also come across the term Auxiliary Space very commonly in DSA, which refers to the extra space used in the program other than the input data structure.
+	
+	Auxiliary Space is the extra space or temporary space used by an algorithm.
+	The space Complexity of an algorithm is the total space taken by the algorithm with respect to the input size. Space complexity includes both Auxiliary space and space used by input. 
+	Both of the above complexities are measured with respect to the input parameters. But here arises a problem. The time required for executing a code depends on several factors, such as: 
+	• The number of operations performed in the program, 
+	• The speed of the device, and also 
+	• The speed of data transfer if being executed on an online platform. 
+	So how can we determine which one is efficient? The answer is the use of asymptotic notation. 
+	
 
 
 Asymptotic notations:
 
 Mathematical tools to represent the time complexities of algorithm for asymptotic analysis
+Asymptotic notation is a mathematical tool that calculates the required time in terms of input size and does not require the execution of the code. 
+
+
+
+
 
 Three types:
 	1. Big-o notation(O ):
@@ -44,3 +59,10 @@ Three types:
 	Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm.  
 	
 	From <https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/> 
+	
+	
+	
+	
+	
+	
+	
