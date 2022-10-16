@@ -1,0 +1,46 @@
+COMPLEXITIES
+
+1.time complexities: to measure the amount  of time required to execute the code
+
+Instead of measuring actual time required in executing each statement in the code, Time Complexity considers how many times each statement executes. 
+
+Example- to find the pen in a class
+• O(n2): You go and ask the first person in the class if he has the pen. Also, you ask this person about the other 99 people in the classroom if they have that pen and so on, 
+This is what we call O(n2). 
+• O(n): Going and asking each student individually is O(N). 
+• O(log n): Now I divide the class into two groups, then ask: “Is it on the left side, or the right side of the classroom?” Then I take that group and divide it into two and ask again, and so on. Repeat the process till you are left with one student who has your pen. This is what you mean by O(log n). 
+
+From <https://www.geeksforgeeks.org/understanding-time-complexity-simple-examples/> 
+
+
+
+
+
+Asymptotic notations:
+
+Mathematical tools to represent the time complexities of algorithm for asymptotic analysis
+
+Three types:
+	1. Big-o notation(O ):
+	Big-O notation represents the upper bound of the running time of an algorithm. Therefore, it gives the worst-case complexity of an algorithm.
+	
+	From <https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/> 
+	
+	
+	For a problem of size N:
+	
+	A constant-time function/method is “order 1” : O(1)
+	A linear-time function/method is “order N” : O(N)
+	A quadratic-time function/method is “order N squared” : O(N 2 )
+	
+	 
+	2. Omega notation(Ω):
+	Omega notation represents the lower bound of the running time of an algorithm. Thus, it provides the best case complexity of an algorithm.
+	
+	From <https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/> 
+	
+	
+	3. Theta notation(Θ):
+	Theta notation encloses the function from above and below. Since it represents the upper and the lower bound of the running time of an algorithm, it is used for analyzing the average-case complexity of an algorithm.  
+	
+	From <https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/> 
