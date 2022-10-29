@@ -40,5 +40,223 @@ int arr[ ]  { 1 , 2 , 3 , 4 , 5 };
 Designated Initializer: This initializer is used when we want to initialize a range with the same value. This is used only with GCC compilers.
 [ first . . . last ] = value;
 int num[5]={ [0 . . . 4 ] = 3 };               // num = { 3, 3, 3, 3, 3}
+1. 
+2. 
+3. Macros: For initializing a huge array with the same value we can use macros.
+#include<stdio.h>
+  
+#define x1 1
+#define x2 x1, x1
+#define x4 x2, x2
+#define x8 x4, x4
+#define x16 x8, x8
+#define x32 x16, x16
+  
+int main(void)
+{
+// array declaration
+int num[] = { x32, x8, x4, x1};
+int size = sizeof(num)/ sizeof(int);    // 32+8+4+1= 45
+  
+printf("The size of the array is %d\n", size);
+printf("The value of element in the array at index 5 is %d ", 
+                                    num[4]);
+  
+return 0;
+  
+}
+Output:
+The size of the array is 45
+The value of element in the array at index 5 is 1
+4. Using For Loop: We can also use for loop to initialize an array with the same value.
+#include<stdio.h>
+  
+int main(void)
+{
+    int size = 6;
+    int val = 1;
+  
+    // array declaration
+    int arr[size];
+    int i;
+  
+    // initializing array elements
+    for (i = 0; i < size ; i++){
+        arr[i] = val;
+    }
+  
+     // print array
+     printf("The array is:");
+     for (i = 0; i < size ; i++){
+         printf("%d ", arr[i]);
+    }
+  
+    return 0;
+}
+Output:
+The array is:1 1 1 1 1 1
 
-From <https://www.geeksforgeeks.org/different-ways-to-initialize-all-members-of-an-array-to-the-same-value-in-c/> 
+
+
+
+
+How to declare an array in C?
+Data_type  array_name[size_of_array];
+
+
+
+
+
+
+
+
+What are the different operations on the array?
+1. Insertion in Array:
+We try to insert a value to a particular array index position, as the array provides random access it can be done easily using the assignment operator.
+Pseudo Code:
+// to insert a value= 10 at index position 2;
+arr[ 2 ] = 10;
+Time Complexity: 
+• O(1) to insert a single element
+• O(N) to insert all the array elements [where N is the size of the array]
+
+
+2. Access elements in Array:
+Accessing array elements become extremely important, in order to perform operations on arrays.
+Pseudo Code:
+// to access array element at index position 2, we simply can write
+return arr[ 2 ] ;
+Time Complexity: O(1)
+
+3. Searching in Array: 
+We try to find a particular value in the array, in order to do that we need to access all the array elements and look for the particular value.
+Pseudo Code:
+// searching for value 2 in the array;
+Loop from i = 0 to 5:
+    check if  arr[i] = 2:
+        return true;
+Time Complexity: O(N), where N is the size of the array.
+
+
+ The main advantage of the array is random access and cache friendliness. There are mainly three types of the array:
+• 
+One Dimensional Array: 
+• It is a list of the variable of similar data types.
+• It allows random access and all the elements can be accessed with the help of their index.
+• The size of the array is fixed.
+• For a dynamically sized array, vector can be used in C++.
+• Representation of 1D array:
+
+ 
+
+
+
+• Two Dimension (2D) Array
+
+
+• It is a list of lists of the variable of the same data type.
+• It also allows random access and all the elements can be accessed with the help of their index.
+• It can also be seen as a collection of 1D arrays. It is also known as the Matrix.
+• Its dimension can be increased from 2 to 3 and 4 so on.
+• They all are referred to as a multi-dimension array.
+• The most common multidimensional array is a 2D array.
+• Representation of 2 D array:
+
+Difference Table:
+Basis	One Dimension Array	Two Dimension Array
+Definition	Store a single list of the element of a similar data type.	Store a ‘list of lists’ of the element of a similar data type.
+Representation	Represent multiple data items as a list.	Represent multiple data items as a table consisting of rows and columns.
+Declaration	The declaration varies for different programming language:	The declaration varies for different programming language:
+	1. For C++,  
+datatype variable_name[row]	1. For C++, 
+datatype variable_name[row][column]
+	2. For Java,  
+datatype [] variable_name= new datatype[row]	2. For Java,  
+datatype [][] variable_name= new datatype[row][column]
+Dimension	One	Two
+Size(bytes)	size of(datatype of the variable of the array) * size of the array	size of(datatype of the variable of the array)* the number of rows* the number of columns.
+Address calculation.	Address of a[index] is equal to (base Address+ Size of each element of array * index).	Address of a[i][j] can be calculated in two ways row-major and column-major
+		1. Column Major: Base Address + Size of each element (number of rows(j-lower bound of the column)+(i-lower bound of the rows))
+		2. Row Major: Base Address + Size of each element (number of columns(i-lower bound of the row)+(j-lower bound of the column))
+Example	int arr[5];  //an array with one row and five columns will be created.	int arr[2][5];  //an array with two rows and five columns will be created.
+	{a , b , c , d , e}	               a  b  c  d  e
+		               f  g   h  i   j
+
+
+nitializing Two – Dimensional Arrays: There are various ways in which a Two-Dimensional array can be initialized. 
+First Method: 
+int x[3][4] = {0, 1 ,2 ,3 ,4 , 5 , 6 , 7 , 8 , 9 , 10 , 11}
+The above array has 3 rows and 4 columns. The elements in the braces from left to right are stored in the table also from left to right. The elements will be filled in the array in order, the first 4 elements from the left in the first row, the next 4 elements in the second row, and so on.
+Second Method: 
+int x[3][4] = {{0,1,2,3}, {4,5,6,7}, {8,9,10,11}};
+Third Method:
+int x[3][4];
+for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 4; j++){
+        cin >> x[i][j];
+    }
+}
+Fourth Method(Dynamic Allocation):
+int** x = new int*[3];
+for(int i = 0; i < 3; i++){
+    x[i] = new int[4];
+    for(int j = 0; j < 4; j++){
+        cin >> x[i][j];
+    }
+}
+This type of initialization makes use of nested braces. Each set of inner braces represents one row. In the above example, there is a total of three rows so there are three sets of inner braces.
+
+
+
+
+
+Applications of 2D Arrays:
+• 2D Arrays are used to implement matrices.
+• Arrays can be used to implement various data structures like a heap, stack, queue, etc.
+• They allow random access.
+• They are cache-friendly.
+
+
+
+• Multidimensional Array
+
+A multi-dimensional array can be termed as an array of arrays that stores homogeneous data in tabular form. Data in multidimensional arrays are stored in row-major order.
+The general form of declaring N-dimensional arrays is:  
+data_type array_name[size1][size2]....[sizeN];
+• data_type: Type of data to be stored in the array.
+• array_name: Name of the array
+• size1, size2,… ,sizeN: Sizes of the dimension
+Examples: 
+Two dimensional array: int two_d[10][20];
+Three dimensional array: int three_d[10][20][30]; 
+Size of Multidimensional Arrays:
+The total number of elements that can be stored in a multidimensional array can be calculated by multiplying the size of all the dimensions. 
+For example: 
+• The array int x[10][20] can store total (10*20) = 200 elements. 
+• Similarly array int x[5][10][20] can store total (5*10*20) = 1000 elements.
+
+
+
+
+
+Advantages of using arrays: 
+• Arrays allow random access to elements. This makes accessing elements by position faster.
+• Arrays have better cache locality which makes a pretty big difference in performance.
+• Arrays represent multiple data items of the same type using a single name.
+Disadvantages of using arrays: 
+You can’t change the size i.e. once you have declared the array you can’t change its size because of static memory allocation. Here Insertion(s) and deletion(s) are difficult as the elements are stored in consecutive memory locations and the shifting operation is costly too.
+
+
+Usually, an array of characters is called a ‘string’, whereas an array of ints or floats is simply called an array.
+Applications on Array
+• Array stores data elements of the same data type.
+• Arrays are used when the size of the data set is known.
+• Used in solving matrix problems.
+• Applied as a lookup table in computer.
+• Databases records are also implemented by the array.
+• Helps in implementing sorting algorithm.
+• The different variables of the same type can be saved under one name.
+• Arrays can be used for CPU scheduling.
+• Used to Implement other data structures like Stacks, Queues, Heaps, Hash tables, etc.
+
+
