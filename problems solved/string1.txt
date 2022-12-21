@@ -1,0 +1,72 @@
+6. Zigzag Conversion
+The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+
+P   A   H   N
+A P L S I I G
+Y   I   R
+And then read line by line: "PAHNAPLSIIGYIR"
+
+Write the code that will take a string and make this conversion given a number of rows:
+
+string convert(string s, int numRows);
+ 
+
+Example 1:
+
+Input: s = "PAYPALISHIRING", numRows = 3
+Output: "PAHNAPLSIIGYIR"
+
+class Solution {
+public:
+    string convert(string s, int numRows) {
+        int k=0;
+        int len=s.size();
+        int pos=numRows-1;
+        int col=len;
+        int A[numRows][col];
+        string res;
+        if(len<=1 || numRows<=1){
+            return s;
+        }
+
+
+        for(int j=0;j<len;j++){
+            if(k>=len){
+                col=j;
+                break;
+            }
+            if(pos==0){
+                pos=numRows-1;
+            }
+            if(pos==numRows-1){
+                for(int i=0;i<numRows;i++){
+                if(k<len){
+                    A[i][j]=s[k++];
+                }
+                else{
+                    A[i][j]=' ';
+                }
+            }
+            }
+            else{
+                for(int i=0;i<numRows;i++){
+                    if(pos==i && k<len){
+                        A[i][j]=s[k++];
+                    }
+                    else{
+                        A[i][j]=' ';
+                    }
+                }
+            }
+            pos--;
+        }
+        for(int i=0;i<numRows;i++){
+            for(int j=0;j<col;j++){
+               if(A[i][j]!=' '){
+                    res+=A[i][j];
+               }
+            }
+        }
+        return res;
+    }
+};
