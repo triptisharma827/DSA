@@ -1,0 +1,45 @@
+179. Largest Number
+Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+
+Since the result may be very large, so you need to return a string instead of an integer.
+
+ 
+
+Example 1:
+
+Input: nums = [10,2]
+Output: "210"
+Example 2:
+
+Input: nums = [3,30,34,5,9]
+Output: "9534330"
+ 
+ 
+ 
+class Solution {
+public:
+    string largestNumber(vector<int>& nums) {
+        string res="";
+        int n=nums.size();
+        
+        for(int i=0;i<n-1;i++){
+            int index=i;
+            string f_str=to_string(nums[index]);
+            
+            for(int j=i+1;j<n;j++){
+                string s_str=to_string(nums[j]);
+                if((f_str+s_str)<(s_str+f_str)){
+                    index=j;
+                    f_str=to_string(nums[index]);
+                }
+
+            }
+            swap(nums[i],nums[index]);
+            res+=f_str;
+        }
+        if(nums[0]==0){
+            return "0";
+        }
+        return res+to_string(nums[n-1]);
+    }
+};
